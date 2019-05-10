@@ -473,7 +473,6 @@ Wants=network.target
 [Service]
 Type=simple
 PIDFile=/var/run/caddy.pid
-ExecStart=/usr/local/bin/caddy -conf=${caddy_conf} -agree=true -ca=https://acme-v02.api.letsencrypt.org/directory
 RestartPreventExitStatus=23
 Restart=always
 User=root
@@ -542,18 +541,6 @@ EOF
 }
 
 
-#检查ssl证书是否生成
-check_ssl(){
-	echo -e "${OK} ${GreenBG} 正在等待域名证书生成 ${Font}"
-	sleep 8
-if [[ -e /root/.caddy/acme/acme-v02.api.letsencrypt.org/sites/${domain}/${domain}.key ]]; then
-	echo -e "${OK} ${GreenBG} SSL证书申请 成功 ${Font}"
-else
-	echo -e "${Error} ${RedBG} SSL证书申请 失败 请确认是否超出Let’s Encrypt申请次数或检查服务器网络 ${Font}"
-	echo -e "${Error} ${RedBG} 注意：证书每个IP每3小时10次 7天内每个子域名不超过5次总计不超过20次 ${Font}"
-	exit 1
-fi
-}
 
 
 #展示配置信息
