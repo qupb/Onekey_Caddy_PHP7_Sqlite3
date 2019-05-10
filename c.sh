@@ -9,7 +9,6 @@
 #	* 一键安装 v2ray、rinetdbbr
 #	* 经典组合 [Website(caddy+php7+sqlite3+tls)+V2ray(vmess+websocket)]use_path+Rinetdbbr
 #	* 推荐系统：Debian 8 （建议选择mini版）
-#	* 开源地址：https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3
 #	Blog: https://oo0.bid
 #====================================================
 
